@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { computeReceipt } from "@/lib/receipt";
 import { settle, submitReceipt } from "@/lib/chain";
-import { taskCodeStore } from "@/app/api/run/route";
+import { taskCodeStore } from "@/lib/task-store";
 
 const AGENT_SECRET = process.env.AGENT_SECRET!;
 const VERIFIER_SECRET = process.env.VERIFIER_SECRET!;
@@ -60,7 +60,7 @@ export async function POST(req: NextRequest) {
         }
 
         const tamperedCode = originalCode + "\n// tampered";
-        const originalHash = computeReceipt(taskId, spec, originalCode);
+        const _originalHash = computeReceipt(taskId, spec, originalCode);
         const tamperedHash = computeReceipt(taskId, spec, tamperedCode);
 
         // Try to overwrite with tampered receipt — contract checks hash match

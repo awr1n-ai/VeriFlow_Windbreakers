@@ -3,9 +3,7 @@ import { computeReceipt } from "@/lib/receipt";
 import { runTests } from "@/lib/verifier";
 import { GoodAgent, LazyAgent } from "@/lib/agent";
 import { createTask, submitReceipt, settle } from "@/lib/chain";
-
-// In-memory store: taskId → agent code
-export const taskCodeStore = new Map<number, string>();
+import { taskCodeStore } from "@/lib/task-store";
 
 const BUYER_SECRET = process.env.BUYER_SECRET!;
 const AGENT_SECRET = process.env.AGENT_SECRET!;
