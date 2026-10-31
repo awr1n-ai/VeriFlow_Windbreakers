@@ -187,14 +187,21 @@ export async function runVerification(
   onStageChange("settled", "success")
 
   return {
+    source: "demo",
     agentType,
     functionName,
     verified,
     outcome: verified ? "released" : "refunded",
     generatedCode,
     testResults,
-    receiptHash,
-    demoTxHash: randomDemoHex(32),
+    serverTestSummary: null,
+    hashFields: [
+      { label: "Receipt hash (SHA-256)", value: receiptHash, badge: "Demo" },
+      { label: "Transaction reference", value: randomDemoHex(32), badge: "Illustrative only" },
+    ],
+    taskId: null,
+    steps: null,
+    errorMessage: null,
     completedAt: new Date().toISOString(),
   }
 }
