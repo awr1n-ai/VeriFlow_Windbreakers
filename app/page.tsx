@@ -1,20 +1,19 @@
-import { HeroSection } from "@/app/components/verify-flow/hero-section"
-import { SiteHeader } from "@/app/components/verify-flow/site-header"
-import { VerifyFlowDemo } from "@/app/components/verify-flow/verify-flow-demo"
+import { AppPreviewSection } from "@/app/components/landing/app-preview-section"
+import { LandingFooter } from "@/app/components/landing/landing-footer"
+import { LandingHero } from "@/app/components/landing/landing-hero"
+import { LandingNav } from "@/app/components/landing/landing-nav"
+import { ProtocolSteps } from "@/app/components/landing/protocol-steps"
 
 export default function Home() {
   return (
-    <div className="min-h-screen">
-      <SiteHeader />
-      <main className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-        <HeroSection />
-        <VerifyFlowDemo />
+    <div className="min-h-screen bg-black">
+      <LandingNav />
+      <main>
+        <LandingHero />
+        <ProtocolSteps />
+        <AppPreviewSection />
       </main>
-      <footer className="border-t border-border py-8 text-center text-xs text-muted-foreground">
-        VeriFlow &middot; Built by Team WindBreakers for AKI HACKS &middot; Demo
-        mode uses mock data; Live mode runs real transactions on Stellar testnet
-        (never mainnet).
-      </footer>
+      <LandingFooter />
     </div>
   )
 }

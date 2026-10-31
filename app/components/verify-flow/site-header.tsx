@@ -1,4 +1,5 @@
 import { ShieldCheck } from "lucide-react"
+import Link from "next/link"
 
 import { Badge } from "@/app/components/ui/badge"
 import { Separator } from "@/app/components/ui/separator"
@@ -13,7 +14,7 @@ export function SiteHeader() {
   return (
     <header className="sticky top-0 z-40 border-b border-border/80 bg-background/85 backdrop-blur">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center gap-3">
+        <Link href="/" className="flex items-center gap-3 rounded-sm focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring">
           <span className="flex h-8 w-8 items-center justify-center rounded-md bg-primary text-primary-foreground">
             <ShieldCheck className="h-4 w-4" aria-hidden="true" />
           </span>
@@ -22,7 +23,7 @@ export function SiteHeader() {
             <Separator orientation="vertical" className="h-4" />
             <span className="text-xs text-muted-foreground">by WindBreakers</span>
           </div>
-        </div>
+        </Link>
 
         <nav
           aria-label="Section navigation"
