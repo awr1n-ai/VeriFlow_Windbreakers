@@ -37,6 +37,7 @@ export async function POST(req: NextRequest) {
     // Step 1 — buyer locks 10 XLM in escrow
     const { taskId, txHash: createTxHash } = await createTask(
       BUYER_SECRET,
+      AGENT_SECRET,
       spec
     );
     steps.push({ step: "create_task", txHash: createTxHash });
